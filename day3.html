@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"  href="day3.css">
+
+</head>
+<body>
+  <h2>Update CSS Variables with <span class="hl"> JS </span> </h2>
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" data-merve="lkjsdf">
+
+    <label for="blur">Blur: </label>
+    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">Base Color: </label>
+    <input type="color" name="base" value="#ffc600">
+    
+  </div>
+  
+  <img src="image.jpg">
+
+  <script>
+    
+  
+
+    function changes (){
+
+    const suffix = this.dataset.sizing || '';
+    console.log(this.dataset);
+    const suffix1 ="px";
+    document.documentElement.style.setProperty(`--${this.name}`, this.value  + suffix );
+    }
+    
+    const inputs = document.querySelectorAll(`.controls input`);
+    
+    inputs.forEach(input => input.addEventListener('change',changes));
+    inputs.forEach(input => input.addEventListener('mousemove',changes));
+  </script>
+     
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
